@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-    name: "mypod5"
+    name: "mypod1"
     labels:
       Region: NZ
       Work: Frontend
