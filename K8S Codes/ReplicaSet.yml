@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: myreplica6
+spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        Manager: Ravi
+      matchExpressions:
+        - {key: Region, operator: In, values: [Aus, NZ, England]}
+        - {key: Work, operator: In, values: [DevOps, Cloud]}
+        - {key: Team, operator: In, values: [Team-3, Team-1, Team-4]}
+    template:
+      metadata:
+        name: "newpod1"
+        labels:
+          Manager: Ravi
+          Region: NZ 
+          Work: Cloud
+          Team: Team-3
+      spec:
+        containers:
+        - name: "myc"
+          image: "vimal13/apache-webserver-php"

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deploy
+spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        Manager: Ravi
+      matchExpressions:
+        - {key: Region, operator: In, values: [Aus, NZ, England]}
+        - {key: Work, operator: In, values: [DevOps, Cloud]}
+        - {key: Team, operator: In, values: [Team-3, Team-1, Team-4]}
+    template:
+      metadata:
+        name: "newpod1"
+        labels:
+          Manager: Ravi
+          Region: Aus 
+          Work: Cloud
+          Team: Team-1
+      spec:
+        containers:
+        - name: "myc"
+          image: "vimal13/apache-webserver-php"

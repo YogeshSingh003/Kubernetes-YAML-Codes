@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pvdep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      Learner: Yogesh
+  template: 
+    metadata:
+      name: "pvdeppod"
+      labels:
+        Learner: Yogesh
+    spec:
+      volumes:
+      - name: mypod-pvc
+        persistentVolumeClaim:
+          claimName: mypvc
+      containers:
+      - name: "pvdepcontainer"
+        image: "vimal13/apache-webserver-php"
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: mypod-pvc
+              
