@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: "mypod5"
+    labels:
+      Region: NZ
+      Work: Frontend
+      Team: Team-2
+      Manager: Yogesh
+      Project: Cloud
+spec:
+    containers:
+    - name: "mycontainer"
+      image: "vimal13/apache-webserver-php"
