@@ -8,7 +8,7 @@ spec:
       app: hello
     template:
       metadata:
-        name: "pod1"
+        name: "podNEW"
         labels:
           app: hello
       spec:
